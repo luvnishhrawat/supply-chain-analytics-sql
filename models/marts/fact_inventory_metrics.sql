@@ -38,8 +38,7 @@ current_inventory AS (
         sku_id,
         location_id,
         available_qty
-    FROM inventory_snapshot
-    WHERE snapshot_date = CURRENT_DATE
+    FROM {{ref('int_inventory_snapshot') }}
 )
 
 SELECT
