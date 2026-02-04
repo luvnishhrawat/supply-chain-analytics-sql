@@ -1,6 +1,8 @@
--- DOC Required Quantity (MTD-aligned)
--- Purpose: Inventory planning using MTD sales velocity
--- Grain: SKU + Location
+-- Model: fact_inventory_metrics
+-- Layer: mart
+-- Description: Standardized inventory metrics including DOC and required quantity
+-- Grain: date, sku_id, location_id
+-- Downstream use: AWS QuickSight dashboards
 
 WITH base_sales AS (
     SELECT
