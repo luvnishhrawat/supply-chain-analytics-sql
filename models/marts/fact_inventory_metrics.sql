@@ -4,6 +4,16 @@
 -- Grain: sku_id, location_id
 -- Downstream use: AWS QuickSight dashboards
 
+
+-- Challenge:
+-- Inventory planning teams often struggle to decide how much inventory is required at SKU-location level.
+-- Raw inventory numbers do not indicate risk unless demand velocity is considered.
+-- This model solves the problem by combining current inventory snapshot with MTD sales velocity to calculate:
+-- 1) Average Daily Sales
+-- 2) Days of Cover (DOC)
+-- 3) Required Quantity for a target DOC
+-- This enables proactive replenishment decisions and stock-out risk monitoring.
+
 WITH sales AS (
     SELECT
         sku_id,
